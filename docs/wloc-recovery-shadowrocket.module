@@ -1,12 +1,12 @@
-#!name=Apple WLOC 定位修改（Recovery v2.2 GH-Proxy）
-#!desc=Shadowrocket recovery build. Module and scripts use GitHub acceleration proxy; no direct raw.githubusercontent.com dependency.
+#!name=Apple WLOC 定位修改（Recovery v2.3 GH-Proxy）
+#!desc=Shadowrocket recovery build. Module and scripts use gh-proxy.com to avoid direct GitHub Raw/CDN failures.
 #!author=Yu9191 Rewrite + recovery patch
 #!homepage=https://github.com/xepes0/wloc
 #!category=Tools
 
 [Script]
-Apple WLOC = type=http-response,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|gsp[a-z0-9-]*-ssl\.ls\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc,requires-body=1,binary-body-mode=1,max-size=0,timeout=30,script-path=https://gh-proxy.org/https://raw.githubusercontent.com/xepes0/wloc/main/dist/wloc.js,argument=longitude=113.94114&latitude=22.544577&accuracy=25&randomRadius=0&logLevel=info
-WLOC Settings = type=http-request,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|loc\.richd\.de5\.net)\/wloc-settings\/save,requires-body=0,max-size=0,timeout=10,script-path=https://gh-proxy.org/https://raw.githubusercontent.com/xepes0/wloc/main/dist/wloc-settings.js
+Apple WLOC = type=http-response,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|gsp[a-z0-9-]*-ssl\.ls\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc,requires-body=1,binary-body-mode=1,max-size=0,timeout=30,script-path=https://gh-proxy.com/https://raw.githubusercontent.com/xepes0/wloc/main/dist/wloc.js,argument=longitude=113.94114&latitude=22.544577&accuracy=25&randomRadius=0&logLevel=info
+WLOC Settings = type=http-request,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|loc\.richd\.de5\.net)\/wloc-settings\/save,requires-body=0,max-size=0,timeout=10,script-path=https://gh-proxy.com/https://raw.githubusercontent.com/xepes0/wloc/main/dist/wloc-settings.js
 
 [MITM]
 enable = true
