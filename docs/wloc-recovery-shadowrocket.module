@@ -1,8 +1,11 @@
-#!name=Apple WLOC 定位修改（Recovery v2.3 GH-Proxy）
-#!desc=Shadowrocket recovery build. Module and scripts use gh-proxy.com to avoid direct GitHub Raw/CDN failures.
+#!name=Apple WLOC 定位修改（Recovery v2.4 Fallback）
+#!desc=Reject gs-loc-cn first so iOS can fall back to another Apple/AutoNavi WLOC backend; keep MITM patching on fallback hosts.
 #!author=Yu9191 Rewrite + recovery patch
 #!homepage=https://github.com/xepes0/wloc
 #!category=Tools
+
+[Rule]
+DOMAIN,gs-loc-cn.apple.com,REJECT
 
 [Script]
 Apple WLOC = type=http-response,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|gsp[a-z0-9-]*-ssl\.ls\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc,requires-body=1,binary-body-mode=1,max-size=0,timeout=30,script-path=https://gh-proxy.com/https://raw.githubusercontent.com/xepes0/wloc/main/dist/wloc.js,argument=longitude=113.94114&latitude=22.544577&accuracy=25&randomRadius=0&logLevel=info
